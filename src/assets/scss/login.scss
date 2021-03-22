@@ -1,0 +1,9 @@
+@import "./vars";
+@import "normalize";
+
+@include normalize();
+
+body{
+  color: $base-color;
+
+}

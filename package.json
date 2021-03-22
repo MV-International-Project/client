@@ -1,0 +1,10 @@
+{
+  "name": "ip-client",
+  "version": "1.0.0",
+  "dependencies": {
+    "normalize-scss": "^7.0.1"
+  },
+  "sass": {
+    "includePaths": ["./node_modules"]
+  }
+}
