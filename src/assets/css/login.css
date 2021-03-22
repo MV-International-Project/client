@@ -6,6 +6,7 @@
  * 2. Prevent adjustments of font size after orientation changes in
  *    IE on Windows Phone and in iOS.
  */
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap");
 html {
   line-height: 1.15;
   /* 1 */
@@ -450,7 +451,34 @@ template {
 }
 
 body {
-  color: #10253c;
+  background-color: #10253c;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+body main {
+  box-sizing: border-box;
+  width: 70%;
+  padding-top: 20%;
+  height: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main div h1 {
+  font-family: "Acme", sans-serif;
+  color: white;
+  font-size: 5rem;
+}
+body main hr {
+  color: #A4864E;
+  width: 200px;
+  height: 2px;
+}
+body main .logBTN {
+  width: 200px;
 }
 
 /*# sourceMappingURL=login.css.map */
