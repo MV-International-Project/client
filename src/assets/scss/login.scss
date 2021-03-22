@@ -1,0 +1,46 @@
+@import "./vars";
+@import "normalize";
+
+@include normalize();
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap');
+
+body {
+  background-color: $base-color;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+
+  main {
+    box-sizing: border-box;
+    width: 70%;
+    padding-top: 20%;
+    height: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    div {
+
+      h1 {
+        font-family: "Acme", sans-serif;
+        color: $accent-white;
+        font-size: 5rem;
+      }
+    }
+
+    hr {
+      color: $accent-gold;
+      width: 200px;
+      height: 2px;
+    }
+
+    .logBTN {
+      width: 200px;
+    }
+  }
+}
+
+
+
