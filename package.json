@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
-    "normalize-scss": "^7.0.1"
+    "normalize-scss": "^7.0.1",
+    "vnu-jar": "^20.2.28"
   },
   "scripts": {
-    "scss": "sass --watch src/assets/scss:src/assets/css --load-path=./node_modules/normalize-scss/sass/"
+    "scss": "sass --watch src/assets/scss:src/assets/css --load-path=./node_modules/normalize-scss/sass/",
+    "validate-html": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --skip-non-html ./src",
   },
   "sass": {
     "includePaths": [
