@@ -468,18 +468,13 @@ body main {
   align-items: center;
   max-width: 500px;
 }
-body main div h1 {
+body main h1 {
   font-family: "Acme", sans-serif;
   color: white;
   font-size: 2rem;
-}
-body main hr {
-  color: gold;
-  width: 100px;
-  height: 2px;
 }
 body main .logBTN {
   width: 100px;
 }
 
-/*# sourceMappingURL=login.css.map */
+/*# sourceMappingURL=sign.css.map */

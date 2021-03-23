@@ -18,19 +18,10 @@ body {
     align-items: center;
     max-width: $max-content;
 
-    div {
-
-      h1 {
-        font-family: "Acme", sans-serif;
-        color: $accent-white;
-        font-size: 2rem;
-      }
-    }
-
-    hr {
-      color: $accent-gold;
-      width: 100px;
-      height: 2px;
+    h1 {
+      font-family: "Acme", sans-serif;
+      color: $accent-white;
+      font-size: 2rem;
     }
 
     .logBTN {
