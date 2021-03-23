@@ -5,12 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tinder for da gamurz</title>
+    <script defer src="assets/fontawesome/all.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/reset.css">
 
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    Bonk
-
+    <main>
+        <section id="page-discover">
+            <header>
+                <button><i class="fas fa-bell"></i></button>
+                <h1>Discover</h1>
+                <button title="filter"><i class="fas fa-filter"></i></button>
+            </header>
+            <div id="swipe-box">
+                <article class="user">
+                    <figure>
+                        <img src="https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png" alt="Picture">
+                        <figcaption>
+                            <h2>USER NAME</h2>
+                            <button>View more...</button>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>
+            <footer>
+                <button><i class="fas fa-ban"></i></button>
+                <button><i class="fas fa-thumbs-up"></i></button>
+            </footer>
+        </section>
+        <section id="matches">
+            <h2>Matches</h2>
+        </section>
+        <section id="settings">
+            <h2>Settings</h2>
+        </section>
+    </main>
+    <nav>
+        <ul>
+            <li data-navigation="discover" class="active"><i class="far fa-compass"></i></li>
+            <li data-navigation="matches"><i class="fas fa-user-friends"></i></li>
+            <li data-navigation="settings"><i class="fas fa-cog"></i></li>
+        </ul>
+    </nav>
+    <script src="assets/js/navigation.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>

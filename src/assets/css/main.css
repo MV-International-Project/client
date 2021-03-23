@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap");
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100vh;
+  background-color: #10253c;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+main {
+  flex-grow: 1;
+}
+
+nav {
+  width: 100%;
+  box-sizing: border-box;
+}
+nav ul {
+  background: #0b1928;
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 2rem 2rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+nav li {
+  color: white;
+  padding: 0.2rem 1rem 0.5rem;
+  font-size: 1.3rem;
+}
+nav li.active {
+  color: #A4864E;
+}
+
+#page-discover {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+#page-discover header, #page-discover footer {
+  padding: 1.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+#page-discover header button {
+  background-color: transparent;
+  border: 0;
+  color: white;
+  font-size: 1.2rem;
+}
+#page-discover footer {
+  justify-content: center;
+}
+#page-discover footer button {
+  background-color: #5A6676;
+  border: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  color: white;
+  margin: 0 0.5rem;
+  font-size: 1.3rem;
+  line-height: 3rem;
+  text-align: center;
+}
+#page-discover footer button:last-of-type {
+  background-color: #A4864E;
+}
+#page-discover #swipe-box {
+  padding: 0 1rem;
+  flex-grow: 1;
+}
+#page-discover #swipe-box article {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+#page-discover #swipe-box article figure {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#page-discover #swipe-box article figure img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+#page-discover #swipe-box article figure figcaption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 2rem 1rem;
+  background-image: linear-gradient(to top, rgba(16, 37, 60, 0.5) 50%, transparent 100%);
+}
+#page-discover #swipe-box article figure figcaption button {
+  background-color: transparent;
+  border: 0;
+  color: white;
+  padding: 0;
+}
+
+/*# sourceMappingURL=main.css.map */
