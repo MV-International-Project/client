@@ -3,6 +3,11 @@
     height: 100%;
     display: flex;
     flex-flow: column nowrap;
+    transition: transform .3s ease-in-out;
+
+    &:not(.show) {
+        transform: translateX(-100%);
+    }
 
     header, footer {
         padding: 1.5rem 1rem;

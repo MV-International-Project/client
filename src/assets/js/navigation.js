@@ -9,8 +9,13 @@ class Navigation {
     }
 
     checkClick(elToCheck) {
-        if (elToCheck.hasAttribute('data-navigation')) this.loadPage(this._pages.get(elToCheck.getAttribute('data-navigation')));
+        if (elToCheck.hasAttribute('data-navigation')) this.loadPage(elToCheck.getAttribute('data-navigation'));
         elToCheck.parentNode !== null && elToCheck.parentNode.tagName !== 'BODY' ? this.checkClick(elToCheck.parentNode) : null;
+    }
+
+    preload(page) {
+        this._pages.get(page).open();
+        this._history.unshift(this._pages.get(page));
     }
 
     addPage(page) {
@@ -28,22 +33,30 @@ class Navigation {
 
 class Page {
     _id;
-    _authenticated;
-    _onOpen;
-    _onClose;
+    _settings = {
+        authenticated: false,
+        inNavBar: false,
+        onOpen: null,
+        onClose: null
+    };
 
-    constructor(id, authenticated, onOpen = null, onClose = null) {
+    constructor(id, settings) {
         this._id = id;
-        this._authenticated = authenticated;
-        this._onOpen = onOpen;
-        this._onClose = onClose;
+        Object.keys(settings).forEach(k => this._settings[k] = settings[k]);
     }
 
     get id() { return this._id }
 
     open() {
-        if (this._authenticated /*&& !isAuthenticated()*/) return;
-        if (this._onOpen !== null) if (!this._onOpen()) return;
+        if (this._settings.authenticated /*&& !isAuthenticated()*/) return;
+        if (this._settings.onOpen !== null) if (!this._settings.onOpen()) return;
+
+        if (this._settings.inNavBar) {
+            document.querySelectorAll('body > nav li').forEach(navItem => {
+                if (navItem.getAttribute('data-navigation') === this._id) navItem.classList.add('active');
+                else navItem.classList.remove('active');
+            });
+        }
 
         document.getElementById(this._id).classList.add('show');
 
@@ -51,7 +64,7 @@ class Page {
     }
 
     close() {
-        if (this._onOpen !== null) if (!this._onClose()) return false;
+        if (this._settings.onClose !== null) if (!this._settings.onClose()) return false;
 
         document.getElementById(this._id).classList.remove('show');
 
