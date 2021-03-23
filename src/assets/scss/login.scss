@@ -1,8 +1,4 @@
 @import "./vars";
-@import "normalize";
-
-@include normalize();
-@import url('https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap');
 
 body {
   background-color: $base-color;
@@ -13,31 +9,32 @@ body {
   main {
     box-sizing: border-box;
     width: 70%;
-    padding-top: 20%;
+    padding-top: 10%;
     height: 80%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: $max-content;
 
     div {
 
       h1 {
         font-family: "Acme", sans-serif;
         color: $accent-white;
-        font-size: 5rem;
+        font-size: 2rem;
       }
     }
 
     hr {
       color: $accent-gold;
-      width: 200px;
+      width: 100px;
       height: 2px;
     }
 
     .logBTN {
-      width: 200px;
+      width: 100px;
     }
   }
 }
