@@ -462,24 +462,45 @@ body main {
   padding-top: 10%;
   height: 80%;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   max-width: 500px;
 }
 body main div h1 {
   font-family: "Acme", sans-serif;
   color: white;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  text-align: center;
 }
-body main hr {
+body main form {
+  box-sizing: border-box;
+  font-family: "Montserrat Subrayada", sans-serif;
+  color: white;
+}
+body main form input, body main form label, body main form textarea {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+body main form input[type=submit] {
+  font-size: 1rem;
   color: gold;
-  width: 100px;
-  height: 2px;
+  background-color: transparent;
+  border: gold solid 2px;
+  text-transform: uppercase;
+  width: 100%;
+  border-radius: 40px;
 }
-body main .logBTN {
+body main form input[type=submit]:active {
+  background-color: #5A6676;
+}
+body main form .logBTN {
   width: 100px;
+  padding-bottom: 20px;
+}
+body main form .f-row {
+  display: flex;
+  justify-content: space-around;
 }
 
-/*# sourceMappingURL=login.css.map */
+/*# sourceMappingURL=register.css.map */

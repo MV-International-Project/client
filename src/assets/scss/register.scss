@@ -1,0 +1,66 @@
+@import "./vars";
+
+body {
+  background-color: $base-color;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+
+  main {
+    box-sizing: border-box;
+    width: 70%;
+    padding-top: 10%;
+    height: 80%;
+    margin: 0 auto;
+    max-width: $max-content;
+
+    div {
+      h1 {
+        font-family: "Acme", sans-serif;
+        color: $accent-white;
+        font-size: 2.5rem;
+        text-align: center;
+      }
+    }
+
+    form {
+      box-sizing: border-box;
+      font-family: "Montserrat Subrayada", sans-serif;
+
+      color: $accent-white;
+      input, label ,textarea{
+        display: block;
+        width: 100%;
+
+        font-size: 1rem;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      input[type=submit] {
+        font-size: 1rem;
+        color: $accent-gold;
+        background-color: transparent;
+        border: $accent-gold solid 2px;
+        text-transform: uppercase;
+        width: 100%;
+        border-radius: 40px;
+      }
+
+      input[type=submit]:active{
+        background-color: $accent-gray;
+      }
+
+      .logBTN {
+        width: 100px;
+        padding-bottom: 20px;
+      }
+
+      .f-row{
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+  }
+}
+

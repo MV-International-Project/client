@@ -1,4 +1,11 @@
+@import "normalize";
+
+@include normalize();
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap');
+
+
 $base-color: #10253c;
-$accent-gold: #A4864E;
+$accent-gold: gold;
 $accent-white: white;
 $accent-gray: #5A6676;
+$max-content: 500px;
