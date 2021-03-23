@@ -2,9 +2,15 @@
   "name": "ip-client",
   "version": "1.0.0",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "normalize-scss": "^7.0.1"
   },
+  "scripts": {
+    "scss": "sass --watch src/assets/scss:src/assets/css --load-path=./node_modules/normalize-scss/sass/"
+  },
   "sass": {
-    "includePaths": ["./node_modules"]
+    "includePaths": [
+      "./node_modules"
+    ]
   }
 }

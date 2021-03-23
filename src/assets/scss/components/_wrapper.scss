@@ -1,0 +1,37 @@
+@import "../utils";
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100vh;
+    background-color: $base-color;
+    color: $accent-white;
+    font-family: "Montserrat", sans-serif;
+}
+
+main {
+    flex-grow: 1;
+}
+
+nav {
+    width: 100%;
+    box-sizing: border-box;
+
+    ul {
+        background: darken($base-color, 5%);
+        display: flex;
+        justify-content: space-around;
+        padding: 1rem 2rem 2rem;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
+    li {
+        color: $accent-white;
+        padding: 0.2rem 1rem 0.5rem;
+        font-size: 1.3rem;
+
+        &.active {
+            color: $accent-gold;
+        }
+    }
+}

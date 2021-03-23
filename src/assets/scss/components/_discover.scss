@@ -1,0 +1,80 @@
+#page-discover {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+
+    header, footer {
+        padding: 1.5rem 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    header {
+        button {
+            background-color: transparent;
+            border: 0;
+            color: $accent-white;
+            font-size: 1.2rem;
+        }
+    }
+
+    footer {
+        justify-content: center;
+        button {
+            background-color: $accent-gray;
+            border: 0;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            color: $accent-white;
+            margin: 0 0.5rem;
+            font-size: 1.3rem;
+            line-height: 3rem;
+            text-align: center;
+
+            &:last-of-type {
+                background-color: $accent-gold;
+            }
+        }
+    }
+
+    #swipe-box {
+        padding: 0 1rem;
+        flex-grow: 1;
+
+        article {
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+            overflow: hidden;
+
+            figure {
+                width: 100%;
+                height: 100%;
+                position: relative;
+    
+                img {
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                }
+    
+                figcaption {
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    padding: 2rem 1rem;
+                    background-image: linear-gradient(to top, transparentize($base-color, 0.5) 50%, transparent 100%);
+                    
+                    button {
+                        background-color: transparent;
+                        border: 0;
+                        color: $accent-white;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}
