@@ -1,0 +1,64 @@
+@import "./vars";
+
+
+#settings {
+  z-index: 5;
+  background-color: $accent-gray;
+  border: $accent-gold;
+  border-radius: 20px;
+  max-width: $max-popup;
+  box-sizing: border-box;
+  width: 50%;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 2rem;
+    font-family: "Acme", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 5px;
+    color: $accent-white;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    label, input, textarea {
+      font-size: 1rem;
+      font-family: "Montserrat", sans-serif;
+      color: $accent-white;
+      padding: 5px;
+    }
+
+    input[type=submit] {
+      background-color: transparent;
+      border-radius: 20px;
+      border: $accent-gold solid 1px;
+      color: $accent-gold;
+      margin-top: 20px;
+      box-sizing: content-box;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.popup-wrapper {
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button {
+  padding-top: 10px;
+  padding-right: 10px;
+  float: right;
+  color: $accent-gold;
+
+}
