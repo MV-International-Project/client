@@ -1,0 +1,10 @@
+image: timbru31/java-node:11-azul-alpine-jdk
+
+stages:
+  - QA
+
+validateHTML:
+  stage: QA
+  script:
+    - npm install
+    - npm run validate-html
