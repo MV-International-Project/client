@@ -493,6 +493,7 @@ template {
 .popup-wrapper {
   width: 100vw;
   height: 100vh;
+  box-sizing: border-box;
   z-index: 4;
   background-color: transparent;
   display: flex;
