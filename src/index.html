@@ -65,7 +65,21 @@
             </div>
         </section>
         <section id="page-settings">
-            <h2>Settings</h2>
+            <header>
+                <h2>Settings</h2>
+            </header>
+            <form> <!-- when opened it should get the current username and description and put in the input as value -->
+                <label for="username">Username</label>
+                <input type="text" id="username" required>
+                <label for="description">Description</label>
+                <textarea id="description" required></textarea>
+                <!-- TODO
+                    <label id="steam">Link steam</label>
+                    <img class="logBTN" src="assets/img/steam.png" alt="steam logo">
+
+                -->
+                <input type="submit" value="update">
+            </form>
         </section>
     </main>
     <nav>
