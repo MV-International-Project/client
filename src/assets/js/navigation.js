@@ -24,7 +24,7 @@ class Navigation {
 
     loadPage(pageId) {
         // Check if previous page closes before opening the next one.
-        if (this._history[this._history.length - 1].close()) {
+        if (this._history[this._history.length - 1].close(pageId)) {
             this._pages.get(pageId).open();
             this._history.push(this._pages.get(pageId));
         }
@@ -63,8 +63,8 @@ class Page {
         return true;
     }
 
-    close() {
-        if (this._settings.onClose !== null) if (!this._settings.onClose()) return false;
+    close(newPage) {
+        if (this._settings.onClose !== null) if (!this._settings.onClose(newPage)) return false;
 
         document.getElementById(this._id).classList.remove('show');
 
