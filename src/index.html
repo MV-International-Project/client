@@ -20,7 +20,7 @@
                 <button title="filter"><i class="fas fa-filter"></i></button>
             </header>
             <div id="swipe-box">
-                <article class="user">
+                <article class="user active">
                     <figure>
                         <img src="https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png" alt="Picture">
                         <figcaption>
@@ -29,10 +29,19 @@
                         </figcaption>
                     </figure>
                 </article>
+                <article class="user">
+                    <figure>
+                        <img src="https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png" alt="Picture">
+                        <figcaption>
+                            <h2>USER NAME 2</h2>
+                            <button>View more...</button>
+                        </figcaption>
+                    </figure>
+                </article>
             </div>
             <footer>
-                <button><i class="fas fa-ban"></i></button>
-                <button><i class="fas fa-thumbs-up"></i></button>
+                <button id="denyUser"><i class="fas fa-ban"></i></button>
+                <button id="likeUser"><i class="fas fa-thumbs-up"></i></button>
             </footer>
         </section>
         <section id="page-matches">
@@ -50,6 +59,7 @@
         </ul>
     </nav>
     <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/swipe.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
