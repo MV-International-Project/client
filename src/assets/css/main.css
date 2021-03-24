@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap");
 body, html {
   display: flex;
   flex-flow: column nowrap;
@@ -33,7 +34,7 @@ nav li {
   transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 nav li.active {
-  color: #A4864E;
+  color: gold;
   transform: scale(1.2);
 }
 
@@ -44,6 +45,8 @@ nav li.active {
   padding: 1.5rem 1rem;
   display: flex;
   justify-content: space-between;
+  font-family: "Acme", sans-serif;
+  text-transform: uppercase;
 }
 #page-discover header button {
   background-color: transparent;
@@ -67,7 +70,7 @@ nav li.active {
   text-align: center;
 }
 #page-discover footer button:last-of-type {
-  background-color: #A4864E;
+  background-color: gold;
 }
 #page-discover #swipe-box {
   position: relative;
@@ -118,6 +121,8 @@ nav li.active {
   padding: 1.5rem 1rem;
   display: flex;
   justify-content: center;
+  font-family: "Acme", sans-serif;
+  text-transform: uppercase;
 }
 #page-matches .match-box {
   padding: 1rem;
@@ -163,6 +168,62 @@ nav li.active {
   width: 4rem;
   object-fit: cover;
   border-radius: 0.2rem;
+}
+
+#page-settings {
+  z-index: 5;
+  border: gold;
+  border-radius: 20px;
+  max-width: 400px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+#page-settings > header, #page-settings > footer {
+  padding: 1.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  font-family: "Acme", sans-serif;
+  color: white;
+  text-transform: uppercase;
+}
+#page-settings form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+#page-settings form label, #page-settings form input, #page-settings form textarea {
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  padding: 5px;
+}
+#page-settings form input[type=submit] {
+  background-color: transparent;
+  border-radius: 20px;
+  border: gold solid 1px;
+  color: gold;
+  margin-top: 20px;
+  box-sizing: content-box;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.popup-wrapper {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  z-index: 4;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button {
+  padding-top: 10px;
+  padding-right: 10px;
+  float: right;
+  color: gold;
 }
 
 main {

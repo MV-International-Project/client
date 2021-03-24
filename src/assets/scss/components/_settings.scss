@@ -1,23 +1,18 @@
-@import "./vars";
-
-
-#settings {
+#page-settings {
   z-index: 5;
-  background-color: $accent-gray;
   border: $accent-gold;
   border-radius: 20px;
   max-width: $max-popup;
   box-sizing: border-box;
-  width: 50%;
-  margin: 0 auto;
+  overflow-y: scroll;
 
-  h2 {
-    font-size: 2rem;
-    font-family: "Acme", sans-serif;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 0 5px;
-    color: $accent-white;
+  & > header, & > footer {
+      padding: 1.5rem 1rem;
+      display: flex;
+      justify-content: center;
+      font-family: "Acme", sans-serif;
+      color: $accent-white;
+      text-transform: uppercase;
   }
 
   form {
