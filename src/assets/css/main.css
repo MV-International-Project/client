@@ -113,6 +113,23 @@ nav li.active {
   color: white;
   padding: 0;
 }
+#page-discover aside {
+  position: absolute;
+  top: 3.5rem;
+  left: 1rem;
+  width: calc(100% - 2rem);
+  background-color: #0b1928;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
+}
+#page-discover aside:not(.active) {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+}
 
 #page-matches {
   overflow-y: scroll;
