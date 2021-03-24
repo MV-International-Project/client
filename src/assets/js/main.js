@@ -4,11 +4,11 @@ let navigationMgr;
 
 const init = () => {
     navigationMgr = new Navigation();
-    navigationMgr.addPage(new Page("page-discover", {authenticated: false, inNavBar: true}));
+    navigationMgr.addPage(new Page("page-discover", {authenticated: false, inNavBar: true, onOpen: initDiscover}));
     navigationMgr.addPage(new Page("page-matches", {authenticated: false, inNavBar: true, onOpen: openMatches, onClose: closeMatches}));
     navigationMgr.addPage(new Page("page-settings", {authenticated: false, inNavBar: true}));
 
-    navigationMgr.preload('page-matches');
+    navigationMgr.preload('page-discover');
 }
 
 const openMatches = () => {
