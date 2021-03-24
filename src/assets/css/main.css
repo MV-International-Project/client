@@ -1,11 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap");
-body {
+body, html {
   display: flex;
   flex-flow: column nowrap;
   height: 100vh;
+  width: 100vw;
   background-color: #10253c;
   color: white;
   font-family: "Montserrat", sans-serif;
+  overflow: hidden;
 }
 
 main {
@@ -107,6 +109,60 @@ nav li.active {
   border: 0;
   color: white;
   padding: 0;
+}
+
+#page-matches {
+  overflow-y: scroll;
+}
+#page-matches > header, #page-matches > footer {
+  padding: 1.5rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+#page-matches .match-box {
+  padding: 1rem;
+}
+#page-matches .match-box article {
+  height: 5rem;
+  overflow: hidden;
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+  box-sizing: border-box;
+  background: #0b1928;
+  border-radius: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#page-matches .match-box article header {
+  display: flex;
+}
+#page-matches .match-box article header div {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  margin-left: 0.2rem;
+}
+#page-matches .match-box article header div ul {
+  display: flex;
+}
+#page-matches .match-box article header div ul li:not(:first-child) {
+  margin-left: -2rem;
+}
+#page-matches .match-box article header div ul li img {
+  width: 4rem;
+  height: 2rem;
+  object-fit: cover;
+  -webkit-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.123);
+  -moz-box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.123);
+  box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.123);
+  border: 3px solid #0b1928;
+  border-radius: 0.5rem;
+}
+#page-matches .match-box article header img {
+  height: 4rem;
+  width: 4rem;
+  object-fit: cover;
+  border-radius: 0.2rem;
 }
 
 main {
