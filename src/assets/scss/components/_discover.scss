@@ -3,6 +3,11 @@
     height: 100%;
     display: flex;
     flex-flow: column nowrap;
+    transition: transform .3s ease-in-out;
+
+    &:not(.show) {
+        transform: translateX(-100%);
+    }
 
     header, footer {
         padding: 1.5rem 1rem;
@@ -40,14 +45,25 @@
     }
 
     #swipe-box {
+        position: relative;
         padding: 0 1rem;
         flex-grow: 1;
 
         article {
-            width: 100%;
+            position: absolute;
+            left: 1rem;
+            top: 500%;
+
+            transform: translateY(-500%) rotate(0deg);
+
+            width: calc(100% - 2rem);
             height: 100%;
             border-radius: 1rem;
             overflow: hidden;
+
+            &.active {
+                z-index: 2;
+            }
 
             figure {
                 width: 100%;

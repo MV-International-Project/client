@@ -28,9 +28,11 @@ nav li {
   color: white;
   padding: 0.2rem 1rem 0.5rem;
   font-size: 1.3rem;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 nav li.active {
   color: #A4864E;
+  transform: scale(1.2);
 }
 
 #page-discover {
@@ -38,6 +40,10 @@ nav li.active {
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
+  transition: transform 0.3s ease-in-out;
+}
+#page-discover:not(.show) {
+  transform: translateX(-100%);
 }
 #page-discover header, #page-discover footer {
   padding: 1.5rem 1rem;
@@ -69,14 +75,22 @@ nav li.active {
   background-color: #A4864E;
 }
 #page-discover #swipe-box {
+  position: relative;
   padding: 0 1rem;
   flex-grow: 1;
 }
 #page-discover #swipe-box article {
-  width: 100%;
+  position: absolute;
+  left: 1rem;
+  top: 500%;
+  transform: translateY(-500%) rotate(0deg);
+  width: calc(100% - 2rem);
   height: 100%;
   border-radius: 1rem;
   overflow: hidden;
+}
+#page-discover #swipe-box article.active {
+  z-index: 2;
 }
 #page-discover #swipe-box article figure {
   width: 100%;
