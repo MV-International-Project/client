@@ -130,6 +130,53 @@ nav li.active {
   pointer-events: none;
   transform: scale(0.8);
 }
+#page-discover aside#filters > div {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  display: flex;
+}
+#page-discover aside#filters > div button {
+  border: 1px solid gold;
+  background-color: rgba(255, 215, 0, 0.2);
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 0.15rem 0.3rem;
+  font-size: 0.8rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+#page-discover aside#filters > div button:focus {
+  outline: none;
+}
+#page-discover aside#filters form {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 1rem;
+}
+#page-discover aside#filters form label {
+  border: 1px solid gold;
+  background-color: rgba(255, 215, 0, 0.2);
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 0.15rem 0.3rem;
+  font-size: 0.8rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+#page-discover aside#filters form label input {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+#page-discover aside#filters form label svg {
+  margin-right: 0.2rem;
+}
+#page-discover aside#filters form label svg.fa-check-square {
+  color: gold;
+}
 
 #page-matches {
   overflow-y: scroll;

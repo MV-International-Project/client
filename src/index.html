@@ -17,7 +17,7 @@
             <header>
                 <button id="notification-btn"><i class="fas fa-bell"></i></button>
                 <h1>Discover</h1>
-                <button title="filter"><i class="fas fa-filter"></i></button>
+                <button id="filter-btn" title="filter"><i class="fas fa-filter"></i></button>
             </header>
             <div id="swipe-box">
                 <article class="user active">
@@ -45,6 +45,32 @@
             </footer>
             <aside id="notifications">
                 <p>You don't have any notifications</p>
+            </aside>
+            
+            <aside id="filters" class="active">
+                <h2>Filters</h2>
+                <div>
+                    <button id="selectAll">
+                        Select all
+                    </button>
+                    <button id="selectNone">
+                        Unselect all
+                    </button>
+                </div>
+                <form action="/users/matchSuggestion" method="get">
+                    <label>
+                        <input type="checkbox" name="gamesToMatchOn" value="g-1">
+                        <i class="fas fa-check-square" style="display: none"></i>
+                        <i class="far fa-square"></i>
+                        R6S
+                    </label>
+                    <label>
+                        <input type="checkbox" name="gamesToMatchOn" value="g-2">
+                        <i class="far fa-square"></i>
+                        <i class="fas fa-check-square" style="display: none"></i>
+                        CS:GO
+                    </label>
+                </form>
             </aside>
         </section>
         <section id="page-matches">
