@@ -14,5 +14,7 @@ export function authorizeWithDiscord() {
 }
 
 export function logout() {
-
+    return fetch(base + "logout", {
+        method: "post"
+    })
 }
