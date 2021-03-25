@@ -1,46 +1,36 @@
-"use strict";
+import {Navigation, Page} from './modules/navigation.js';
+import apiHandler from './modules/api.js';
+import initDiscover from './modules/discover.js';
+import config from './modules/config.js';
+import { closeMatches, openMatches } from './modules/matches.js';
+import swipeInit from './modules/swipe.js';
 
-let navigationMgr;
+class Main {
+    constructor() {
+        this.navigationMgr = new Navigation(this);
+        this.apiHandler = new apiHandler(this);
+        this.navigationMgr.addPage(new Page(this, "page-discover", {authenticated: true, inNavBar: true, onOpen: initDiscover}));
+        this.navigationMgr.addPage(new Page(this, "page-matches", {authenticated: true, inNavBar: true, onOpen: openMatches, onClose: closeMatches}));
+        this.navigationMgr.addPage(new Page(this, "page-settings", {authenticated: true, inNavBar: true}));
+        this.navigationMgr.addPage(new Page(this, "page-login", {authenticated: false, inNavBar: false}));
+    
+        this.navigationMgr.preload('page-discover');
 
-const init = () => {
-    navigationMgr = new Navigation();
-    navigationMgr.addPage(new Page("page-discover", {authenticated: true, inNavBar: true, onOpen: initDiscover}));
-    navigationMgr.addPage(new Page("page-matches", {authenticated: true, inNavBar: true, onOpen: openMatches, onClose: closeMatches}));
-    navigationMgr.addPage(new Page("page-settings", {authenticated: true, inNavBar: true}));
-    navigationMgr.addPage(new Page("page-login", {authenticated: false, inNavBar: false}));
+        swipeInit();
 
-    navigationMgr.preload('page-discover');
+        document.querySelector('.logBTN').addEventListener('click', this.authWithDiscord);
+    }
+    
+    authWithDiscord = () => {
+        location.href = "https://discord.com/api/oauth2/authorize?" + new URLSearchParams({
+            redirect_uri: this.apiHandler.apiUrl + "/users/login",
+            scope: "identify connections gdm.join",
+            client_id: config.client_id,
+            response_type: "code"
+        })
+    }
 }
 
-const openMatches = () => {
-    let moveTo = '100';
-    if (navigationMgr._history.length < 1) return true;
-    if (navigationMgr._history[navigationMgr._history.length -1].id === 'page-settings') moveTo = '-100';
 
-    document.querySelector('#page-matches').style.transition = 'width .3s ease-in-out';
-    document.querySelector('#page-matches').style.transform = `translateX(${moveTo}%)`;
-    setTimeout(() => {
-        document.querySelector('#page-matches').style.transition = 'transform .3s ease-in-out';
-        document.querySelector('#page-matches').classList.add('show');
-        document.querySelector('#page-matches').style.transform = ``;
-    }, 10);
-    return true;
-}
 
-const closeMatches = (np) => {
-    let moveTo = '100';
-    if (np === 'page-settings') moveTo = '-100';
-
-    document.querySelector('#page-matches').style.transition = 'transform .3s ease-in-out';
-    document.querySelector('#page-matches').style.transform = `translateX(${moveTo}%)`;
-    setTimeout(() => {
-        document.querySelector('#page-matches').classList.remove('show');
-        setTimeout(() => {
-            document.querySelector('#page-matches').style.transform = `0`;
-            document.querySelector('#page-matches').style.transition = '';
-        }, 300)
-    }, 10);
-    return true;
-}
-
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", () => new Main());

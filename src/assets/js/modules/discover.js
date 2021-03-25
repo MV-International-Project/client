@@ -1,5 +1,3 @@
-"use strict";
-
 const initDiscover = () => {
     document.querySelector('#notification-btn').removeEventListener('click', toggleNotifications);
     document.querySelector('#notification-btn').addEventListener('click', toggleNotifications);
@@ -52,3 +50,5 @@ const hideAllElements = () => { hideNotificationElement();hideFilterElement(); }
 
 const toggleNotifications = (e) => { e.preventDefault(); document.querySelector('#notifications').classList.toggle('active'); }
 const toggleFilters = (e) => { e.preventDefault(); document.querySelector('#filters').classList.toggle('active'); }
+
+export default initDiscover;
