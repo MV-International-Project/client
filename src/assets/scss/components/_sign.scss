@@ -1,0 +1,19 @@
+#page-login {
+  box-sizing: border-box;
+  padding-top: 10%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-family: "Acme", sans-serif;
+    color: $accent-white;
+    font-size: 2rem;
+  }
+
+  .logBTN {
+    width: 100px;
+  }
+}

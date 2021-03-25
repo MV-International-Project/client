@@ -56,4 +56,4 @@ const cleanupSwipe = (accepted) => {
     // else denyUser(userId);
 }
 
-document.addEventListener('DOMContentLoaded', swipeInit);
+export default swipeInit;
