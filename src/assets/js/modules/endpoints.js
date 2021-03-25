@@ -10,7 +10,7 @@ function constructRedirectURL() {
 
 export function authorizeWithDiscord() {
     location.href = "https://discord.com/api/oauth2/authorize?" + new URLSearchParams({
-        redirect_uri: constructRedirectURL(),
+        redirect_uri: base + "users/login",
         scope: "identify connections gdm.join",
         client_id: config.client_id,
         response_type: "code"
@@ -18,20 +18,12 @@ export function authorizeWithDiscord() {
 }
 
 export function getAccessToken(code) {
-    console.log(code)
-    fetch("https://discord.com/api/oauth2/token",
+    return fetch(base + "users/login",
         {
             method: "post",
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: new URLSearchParams({
-                grant_type: "authorization_code",
-                code: code,
-                redirect_uri: base + "discord",
-                scope: "identify connections gdm.join",
-                client_id: config.client_id,
-                client_secret: config.client_secret
-            })
+            body: {
+                code: code
+            }
         }
-    ).then(r => r.json())
-        .then(console.log)
+    )
 }
