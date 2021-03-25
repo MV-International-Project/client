@@ -216,8 +216,10 @@
 #page-settings form label, #page-settings form input, #page-settings form textarea {
   font-size: 1rem;
   font-family: "Montserrat", sans-serif;
-  color: white;
   padding: 5px;
+}
+#page-settings form label {
+  color: white;
 }
 #page-settings form input[type=submit] {
   background-color: transparent;
