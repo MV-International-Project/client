@@ -9,6 +9,7 @@ class Main {
     constructor() {
         this.navigationMgr = new Navigation(this);
         this.apiHandler = new apiHandler(this);
+        this.settingsHandler = new Settings(this.apiHandler);
         this.navigationMgr.addPage(new Page(this, "page-discover", {
             authenticated: true,
             inNavBar: true,
@@ -23,7 +24,7 @@ class Main {
         this.navigationMgr.addPage(new Page(this, "page-settings", {
             authenticated: true,
             inNavBar: true,
-            onOpen: new Settings(this.apiHandler).init
+            onOpen: this.settingsHandler.init
         }));
         this.navigationMgr.addPage(new Page(this, "page-login", {authenticated: false, inNavBar: false}));
 
@@ -33,6 +34,7 @@ class Main {
 
         document.querySelector('.logBTN').addEventListener('click', this.apiHandler.authWithDiscord);
         document.querySelector("#logout").addEventListener("click", this.apiHandler.logout);
+        document.querySelector("#page-settings form").addEventListener('submit', this.settingsHandler.update)
     }
 }
 

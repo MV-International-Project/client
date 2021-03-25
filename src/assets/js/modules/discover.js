@@ -37,7 +37,7 @@ const changedMatchFilter = (e) => {
 }
 
 const closeOverlays = (e) => {
-    console.log(e);
+    //console.log(e);
     if (e.id === "notifications" || e.id === "filters") return;
     if (e.id === "filter-btn" && e.id !== "notification-btn") return hideNotificationElement();
     if (e.id !== "filter-btn" && e.id === "notification-btn") return hideFilterElement();

@@ -21,7 +21,7 @@ export default class apiHandler {
             body: JSON.stringify(body)
         })
             .then(this.validate)
-            .then(response => response.json());
+            .then(parseJson);
     }
 
     validate = (response) => {
@@ -47,11 +47,23 @@ export default class apiHandler {
 
     logout = () => {
         this.apiCall('/users/logout', 'POST', true)
-            .then(location.reload)
+            .then(() => location.reload())
     }
 
     getUser = () => {
         return this.apiCall("/user", "GET", true)
+    }
+
+    updateSettings = (username, description) => {
+        return this.apiCall("/user", "PATCH", true, {username: username, description: description})
+    }
+}
+
+const parseJson = async response => { // prevent error in log, this way it doesnt clutter the output
+    try {
+        return await response.json()
+    } catch (err) {
+        return response
     }
 }
 
