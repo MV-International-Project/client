@@ -1,11 +1,14 @@
-@import "./components/wrapper";
+
+@import "./utils";
+
 @import "./components/discover";
 @import "./components/matches";
 @import "./components/settings";
-@import url('https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap');
+@import "./components/sign";
+@import "./components/wrapper";
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap");
 
 .show {
-    
 }
 
 main {
@@ -17,7 +20,7 @@ main {
         height: 100%;
         display: flex;
         flex-flow: column nowrap;
-        transition: transform .3s ease-in-out;
+        transition: transform 0.3s ease-in-out;
 
         &:not(.show) {
             transform: translateX(100%);

@@ -47,8 +47,8 @@ class Page {
 
     get id() { return this._id }
 
-    open() {
-        if (this._settings.authenticated /*&& !isAuthenticated()*/) return;
+    async open() {
+        if (this._settings.authenticated && await !isAuthenticated()) return navigationMgr.preload('page-login');
         if (this._settings.onOpen !== null) if (!this._settings.onOpen()) return;
 
         if (this._settings.inNavBar) {
