@@ -1,1 +1,13 @@
 @import "./vars";
+
+@mixin btn1($color) {
+  background-color: transparent;
+  border-radius: 20px;
+  border: $color solid 1px;
+  color: $color;
+  margin-top: 20px;
+  box-sizing: content-box;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-family: "Montserrat", sans-serif;
+}
