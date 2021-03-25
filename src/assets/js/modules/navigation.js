@@ -1,6 +1,6 @@
 
 
-class Navigation {
+export default class Navigation {
     _pages = new Map();
     _history = [];
 
@@ -40,15 +40,16 @@ class Page {
         onClose: null
     };
 
-    constructor(id, settings) {
+    constructor(main, id, settings) {
+        this.main = main;
         this._id = id;
         Object.keys(settings).forEach(k => this._settings[k] = settings[k]);
     }
 
     get id() { return this._id }
 
-    open() {
-        if (this._settings.authenticated /*&& !isAuthenticated()*/) return;
+    async open() {
+        if (this._settings.authenticated && await !this.main.apiHandler.isAuthenticated()) return navigationMgr.preload('page-login');
         if (this._settings.onOpen !== null) if (!this._settings.onOpen()) return;
 
         if (this._settings.inNavBar) {
@@ -71,3 +72,5 @@ class Page {
         return true;
     }
 }
+
+export {Navigation, Page};

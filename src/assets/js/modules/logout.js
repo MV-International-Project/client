@@ -1,4 +1,4 @@
-import * as endpoints from './modules/endpoints.js'
+import * as endpoints from './endpoints.js'
 
 
 function redirectToIndex() { // prob changed with sign and main merge

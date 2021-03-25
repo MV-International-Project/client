@@ -17,7 +17,7 @@
             <header>
                 <button id="notification-btn"><i class="fas fa-bell"></i></button>
                 <h1>Discover</h1>
-                <button title="filter"><i class="fas fa-filter"></i></button>
+                <button id="filter-btn" title="filter"><i class="fas fa-filter"></i></button>
             </header>
             <div id="swipe-box">
                 <article class="user active">
@@ -47,6 +47,32 @@
             </footer>
             <aside id="notifications">
                 <p>You don't have any notifications</p>
+            </aside>
+            
+            <aside id="filters">
+                <h2>Filters</h2>
+                <div>
+                    <button id="selectAll">
+                        Select all
+                    </button>
+                    <button id="selectNone">
+                        Unselect all
+                    </button>
+                </div>
+                <form action="/users/matchSuggestion" method="get">
+                    <label>
+                        <input type="checkbox" name="gamesToMatchOn" value="g-1">
+                        <i class="fas fa-check-square" style="display: none"></i>
+                        <i class="far fa-square"></i>
+                        R6S
+                    </label>
+                    <label>
+                        <input type="checkbox" name="gamesToMatchOn" value="g-2">
+                        <i class="far fa-square"></i>
+                        <i class="fas fa-check-square" style="display: none"></i>
+                        CS:GO
+                    </label>
+                </form>
             </aside>
         </section>
         <section id="page-matches">
@@ -90,6 +116,10 @@
             </form>
             <button id="logout">Sign out</button>
         </section>
+        <section id="page-login">
+            <h1>SIGN IN/UP</h1>
+            <img class="logBTN" src="assets/img/discord.png" alt="Discord logo">
+        </section>
     </main>
     <nav>
         <ul>
@@ -98,10 +128,8 @@
             <li data-navigation="page-settings"><i class="fas fa-cog"></i></li>
         </ul>
     </nav>
-    <script src="assets/js/navigation.js"></script>
-    <script src="assets/js/swipe.js"></script>
-    <script src="assets/js/discover.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script type="module" src="assets/js/logout.js"></script>
+    
+    <script src="assets/js/main.js" type="module"></script>
+    <script src="assets/js/modules/logout.js" type="module"></script>
 </body>
 </html>

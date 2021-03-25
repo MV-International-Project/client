@@ -107,5 +107,62 @@
             pointer-events: none;
             transform: scale(0.8);
         }
+
+        &#filters {
+            & > div {
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+                display: flex;
+
+                button {
+                    border: 1px solid $accent-gold;
+                    background-color: transparentize($accent-gold, 0.8);
+                    border-radius: 0.5rem;
+                    margin-right: 0.5rem;
+                    padding: 0.15rem 0.3rem;
+                    font-size: 0.8rem;
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+
+            form {
+                display: flex;
+                flex-flow: row wrap;
+                margin-top: 1rem;
+
+                label {
+                    border: 1px solid $accent-gold;
+                    background-color: transparentize($accent-gold, 0.8);
+                    border-radius: 0.5rem;
+                    margin-right: 0.5rem;
+                    padding: 0.15rem 0.3rem;
+                    font-size: 0.8rem;
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+
+                    input {
+                        position: absolute;
+                        pointer-events: none;
+                        opacity: 0;
+                    }
+
+                    svg {
+                        margin-right: 0.2rem;
+    
+                        &.fa-check-square {
+                            color: $accent-gold;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
