@@ -18,3 +18,14 @@ export function logout() {
         method: "post"
     })
 }
+
+export function isAuth() {
+    return fetch(base + "users/authenticated")
+}
+// helper functions
+
+export function getBaseURL() {
+    return `${location.protocol}//${location.host}${location.pathname}`
+}
+
+
