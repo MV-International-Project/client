@@ -7,7 +7,7 @@ export default class apiHandler {
         this.main = main;
     }
 
-    isAuthenticated = async (cb) => {
+    isAuthenticated = async () => {
         return await this.apiCall('/users/authenticated', 'GET', true);
     }
     

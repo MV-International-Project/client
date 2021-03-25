@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Acme&family=Montserrat&display=swap");
 #page-discover:not(.show) {
   transform: translateX(-100%);
 }
