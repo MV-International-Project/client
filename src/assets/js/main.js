@@ -1,24 +1,27 @@
-import {Navigation, Page} from './modules/navigation.js';
+import Navigation from './modules/navigation.js';
 import apiHandler from './modules/api.js';
-import initDiscover from './modules/discover.js';
 import config from './modules/config.js';
-import { closeMatches, openMatches } from './modules/matches.js';
-import swipeInit from './modules/swipe.js';
+import Matches from './pages/matches.js';
+import Swipe from './modules/swipe.js';
+import Discover from './pages/discover.js';
+import Settings from './pages/settings.js';
+import Login from './pages/login.js';
 
 class Main {
     constructor() {
         this.navigationMgr = new Navigation(this);
         this.apiHandler = new apiHandler(this);
-        this.navigationMgr.addPage(new Page(this, "page-discover", {authenticated: true, inNavBar: true, onOpen: initDiscover}));
-        this.navigationMgr.addPage(new Page(this, "page-matches", {authenticated: true, inNavBar: true, onOpen: openMatches, onClose: closeMatches}));
-        this.navigationMgr.addPage(new Page(this, "page-settings", {authenticated: true, inNavBar: true}));
-        this.navigationMgr.addPage(new Page(this, "page-login", {authenticated: false, inNavBar: false}));
+        this.navigationMgr.addPage(new Discover(this));
+        this.navigationMgr.addPage(new Matches(this));
+        this.navigationMgr.addPage(new Settings(this));
+        this.navigationMgr.addPage(new Login(this));
     
         this.navigationMgr.preload('page-discover');
 
-        swipeInit();
+        this.swipe = new Swipe(this);
 
         document.querySelector('.logBTN').addEventListener('click', this.authWithDiscord);
+        document.querySelector("#logout").addEventListener("click", this.apiHandler.logout);
     }
     
     authWithDiscord = () => {

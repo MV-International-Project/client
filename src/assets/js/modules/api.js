@@ -10,7 +10,21 @@ export default class apiHandler {
     isAuthenticated = async (cb) => {
         return await this.apiCall('/users/authenticated', 'GET', true);
     }
-    
+
+    logout = () => {
+        this.apiCall('/users/logout', 'POST', true)
+            .then(() => {
+                location.reload();
+            })
+    }
+
+    loadNewUser = () => {
+        this.apiCall('/users/matchSuggestion', 'GET', true)
+            .then(response => {
+                console.log(response);
+            });
+    }
+
     apiCall = (uri, method = 'GET', authenticated, body) => {
         return fetch(this.apiUrl + uri, {
             method: method,
@@ -23,7 +37,7 @@ export default class apiHandler {
             .then(this.validate)
             .then(response => response.json());
     }
-    
+
     validate = (response) => {
         if (response.status === 403 || response.status === 401) { // failed to auth
             this.main.navigationMgr.loadPage('page-login');
@@ -34,7 +48,7 @@ export default class apiHandler {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
         if (parts.length === 2) return parts.pop().split(';').shift();
-      }
+    }
 }
 
 
