@@ -12,3 +12,7 @@ export function authorizeWithDiscord() {
         response_type: "code"
     })
 }
+
+export function logout() {
+
+}
