@@ -219,6 +219,9 @@
   color: white;
   padding: 5px;
 }
+#page-settings form input {
+  color: black;
+}
 #page-settings form input[type=submit] {
   background-color: transparent;
   border-radius: 20px;

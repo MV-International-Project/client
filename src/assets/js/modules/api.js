@@ -49,6 +49,10 @@ export default class apiHandler {
         this.apiCall('/users/logout', 'POST', true)
             .then(location.reload)
     }
+
+    getUser = () => {
+        return this.apiCall("/user", "GET", true)
+    }
 }
 
 

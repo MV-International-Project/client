@@ -3,6 +3,7 @@ import apiHandler from './modules/api.js';
 import initDiscover from './modules/discover.js';
 import {closeMatches, openMatches} from './modules/matches.js';
 import swipeInit from './modules/swipe.js';
+import Settings from "./modules/settings.js";
 
 class Main {
     constructor() {
@@ -19,7 +20,11 @@ class Main {
             onOpen: openMatches,
             onClose: closeMatches
         }));
-        this.navigationMgr.addPage(new Page(this, "page-settings", {authenticated: true, inNavBar: true}));
+        this.navigationMgr.addPage(new Page(this, "page-settings", {
+            authenticated: true,
+            inNavBar: true,
+            onOpen: new Settings(this.apiHandler).init
+        }));
         this.navigationMgr.addPage(new Page(this, "page-login", {authenticated: false, inNavBar: false}));
 
         this.navigationMgr.preload('page-discover');
