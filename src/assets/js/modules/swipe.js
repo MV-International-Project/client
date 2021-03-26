@@ -1,59 +1,60 @@
 "use strict";
+export default class Swipe {
+    startPos;
+    lastPos;
 
-let swipeInitialized = false;
-let startPos, lastPos;
+    constructor(main) {
+        this.main = main;
 
-const swipeInit = () => {
-    document.querySelector('#swipe-box').addEventListener('touchstart', startSwipe);
-    document.querySelector('#swipe-box').addEventListener('touchmove', swiping);
-    document.querySelector('#swipe-box').addEventListener('touchend', endSwipe);
+        document.querySelector('#swipe-box').addEventListener('touchstart', this.startSwipe);
+        document.querySelector('#swipe-box').addEventListener('touchmove', this.swiping);
+        document.querySelector('#swipe-box').addEventListener('touchend', this.endSwipe);
+    
+        document.querySelector('#denyUser').addEventListener('click', (e) => {
+            e.preventDefault();
+            this.cleanupSwipe(false);
+        });
+        document.querySelector('#likeUser').addEventListener('click', (e) => {
+            e.preventDefault();
+            this.cleanupSwipe(true);
+        });
+    }
 
-    document.querySelector('#denyUser').addEventListener('click', (e) => {
+    startSwipe = (e) => {
+        this.startPos = e.touches[0].clientX;
+        this.lastPos = 0;
+    }
+    
+    swiping = (e) => {
         e.preventDefault();
-        cleanupSwipe(false);
-    });
-    document.querySelector('#likeUser').addEventListener('click', (e) => {
-        e.preventDefault();
-        cleanupSwipe(true);
-    });
-}
-
-const startSwipe = (e) => {
-    startPos = e.touches[0].clientX;
-    lastPos = 0;
-}
-
-const swiping = (e) => {
-    e.preventDefault();
-    console.log(((e.touches[0].clientX / window.innerWidth) * 12) - 6);
-    lastPos = ((e.touches[0].clientX / window.innerWidth) * 12) - 6;
-    document.querySelector('#swipe-box article.active').style.transform = `rotate(${lastPos}deg) translateY(-500%)`;
-}
-
-const endSwipe = (e) => {
-    if (lastPos < -5) {
-        cleanupSwipe(false)
-    } else if (lastPos > 5) {
-        cleanupSwipe(true)
-    } else {
+        this.lastPos = ((e.touches[0].clientX / window.innerWidth) * 12) - 6;
+        document.querySelector('#swipe-box article.active').style.transform = `rotate(${this.lastPos}deg) translateY(-500%)`;
+    }
+    
+    endSwipe = (e) => {
+        if (this.lastPos < -5) {
+            this.cleanupSwipe(false)
+        } else if (this.lastPos > 5) {
+            this.cleanupSwipe(true)
+        } else {
+            document.querySelector('#swipe-box article.active').style.transition = 'transform .3s ease-in-out';
+            document.querySelector('#swipe-box article.active').style.transform = '';
+            setTimeout(() => document.querySelector('#swipe-box article.active').style.transition = '', 400);
+        }
+    }
+    
+    cleanupSwipe = (accepted) => {
+        const userId = document.querySelector('#swipe-box article:nth-of-type(1)').id;
         document.querySelector('#swipe-box article.active').style.transition = 'transform .3s ease-in-out';
-        document.querySelector('#swipe-box article.active').style.transform = '';
-        setTimeout(() => document.querySelector('#swipe-box article.active').style.transition = '', 400);
+        document.querySelector('#swipe-box article.active').style.transform = `rotate(${accepted ? '': '-'}8deg) translateY(-500%)`;
+        setTimeout(() => {
+            document.querySelector('#swipe-box article.active').style.transition = '';
+            document.querySelector('#swipe-box article.active').remove();
+        }, 400);
+    
+        if (accepted) this.main.apiHandler.acceptUser(userId.split('-')[1]);
+        else this.main.apiHandler.denyUser(userId.split('-')[1]);
+        setTimeout(this.main.apiHandler.loadNewUser, 300)
+        
     }
 }
-
-const cleanupSwipe = (accepted) => {
-    const userId = document.querySelector('#swipe-box article.active').id;
-    document.querySelector('#swipe-box article.active').style.transition = 'transform .3s ease-in-out';
-    document.querySelector('#swipe-box article.active').style.transform = `rotate(${accepted ? '': '-'}8deg) translateY(-500%)`;
-    setTimeout(() => {
-        document.querySelector('#swipe-box article.active').style.transition = '';
-        document.querySelector('#swipe-box article.active').remove();
-    }, 400);
-
-    // loadNewUser();
-    // if (accepted) acceptUser(userId);
-    // else denyUser(userId);
-}
-
-export default swipeInit;
