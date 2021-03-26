@@ -46,6 +46,14 @@ export default class Discover extends Page {
     }
     
     closeOverlays = (e) => {
+        if (e.classList.contains('show-more')) {
+            if (e.parentNode.hasAttribute('data-info')) {
+                sessionStorage.setItem('pts', e.parentNode.id);
+            } else {
+                sessionStorage.setItem('pts', e.parentNode.parentNode.id);
+            }
+            this.main.navigationMgr.loadPage('page-profile');
+        }
         if (e.id === "notifications" || e.id === "filters") return;
         if (e.id === "filter-btn" && e.id !== "notification-btn") return this.hideNotificationElement();
         if (e.id !== "filter-btn" && e.id === "notification-btn") return this.hideFilterElement();
