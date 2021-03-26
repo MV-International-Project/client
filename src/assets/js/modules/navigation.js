@@ -20,6 +20,13 @@ export default class Navigation {
         this._pages.set(page.id, page);
     }
 
+    back() {
+        if (this._history[this._history.length - 1].close(pageId)) {
+            this._pages.get(this._history[this._history.length - 2]).open();
+            this._history.pop();
+        }
+    }
+
     loadPage(pageId) {
         // Check if previous page closes before opening the next one.
         if (this._history[this._history.length - 1].close(pageId)) {

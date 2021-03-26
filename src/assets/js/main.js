@@ -1,11 +1,11 @@
-import Navigation from './modules/navigation.js';
 import apiHandler from './modules/api.js';
-import config from './modules/config.js';
-import Matches from './pages/matches.js';
+import Navigation from './modules/navigation.js';
 import Swipe from './modules/swipe.js';
 import Discover from './pages/discover.js';
-import Settings from './pages/settings.js';
 import Login from './pages/login.js';
+import Matches from './pages/matches.js';
+import Profile from './pages/profile.js';
+import Settings from './pages/settings.js';
 
 class Main {
     constructor() {
@@ -15,6 +15,7 @@ class Main {
         this.navigationMgr.addPage(new Matches(this));
         this.navigationMgr.addPage(new Settings(this));
         this.navigationMgr.addPage(new Login(this));
+        this.navigationMgr.addPage(new Profile(this));
     
         this.navigationMgr.preload('page-discover');
 
