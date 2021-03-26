@@ -1,4 +1,5 @@
 import config from "./config.js";
+import { userCard, matchCard } from "./template.js";
 
 export default class apiHandler {
     apiUrl = `http://${config.host}:${config.port}/api`;
@@ -21,8 +22,36 @@ export default class apiHandler {
     loadNewUser = () => {
         this.apiCall('/users/matchSuggestion', 'GET', true)
             .then(response => {
-                console.log(response);
+                response.forEach(user => {
+                    if (document.querySelectorAll(`#user-${user.id}`).length < 1) {
+                        document.querySelector('#swipe-box').innerHTML += userCard(user);
+                    }
+                });
+                document.querySelectorAll('#swipe-box article')[0].classList.add('active');
             });
+    }
+
+    loadMatches = () => {
+        this.apiCall('/users/matches', 'GET', true)
+            .then(response => {
+                response.forEach(match => {
+                    if (document.querySelectorAll(`#match-${match.id}`).length < 1) {
+                        document.querySelector('#match-box').innerHTML += matchCard(match);
+                    }
+                })
+            })
+    }
+
+    acceptUser = (uid) => {
+        this.apiCall(`/users/matchSuggestion/${uid}`, 'PATCH', true, {
+            accept: true
+        });
+    }
+
+    denyUser = (uid) => {
+        this.apiCall(`/users/matchSuggestion/${uid}`, 'PATCH', true, {
+            accept: false
+        });
     }
 
     apiCall = (uri, method = 'GET', authenticated, body) => {

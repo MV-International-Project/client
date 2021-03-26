@@ -30,6 +30,8 @@ export default class Discover extends Page {
     
         document.querySelectorAll('#filters input[type=checkbox]').forEach(el => el.addEventListener('input', this.changedMatchFilter));
     
+        this.main.apiHandler.loadNewUser();
+
         return true;
     }
     

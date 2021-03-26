@@ -44,7 +44,7 @@ export default class Swipe {
     }
     
     cleanupSwipe = (accepted) => {
-        const userId = document.querySelector('#swipe-box article.active').id;
+        const userId = document.querySelector('#swipe-box article:nth-of-type(1)').id;
         document.querySelector('#swipe-box article.active').style.transition = 'transform .3s ease-in-out';
         document.querySelector('#swipe-box article.active').style.transform = `rotate(${accepted ? '': '-'}8deg) translateY(-500%)`;
         setTimeout(() => {
@@ -52,8 +52,9 @@ export default class Swipe {
             document.querySelector('#swipe-box article.active').remove();
         }, 400);
     
-        this.main.apiHandler.loadNewUser();
-        // if (accepted) acceptUser(userId);
-        // else denyUser(userId);
+        if (accepted) this.main.apiHandler.acceptUser(userId.split('-')[1]);
+        else this.main.apiHandler.denyUser(userId.split('-')[1]);
+        setTimeout(this.main.apiHandler.loadNewUser, 300)
+        
     }
 }

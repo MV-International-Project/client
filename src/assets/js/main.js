@@ -18,7 +18,7 @@ class Main {
     
         this.navigationMgr.preload('page-discover');
 
-        this.swipe = new Swipe(this);
+        new Swipe(this);
 
         document.querySelector('.logBTN').addEventListener('click', this.authWithDiscord);
         document.querySelector("#logout").addEventListener("click", this.apiHandler.logout);

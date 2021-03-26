@@ -17,6 +17,9 @@ export default class Matches extends Page {
             document.querySelector('#page-matches').classList.add('show');
             document.querySelector('#page-matches').style.transform = ``;
         }, 10);
+
+        this.main.apiHandler.loadMatches();
+
         return true;
     }
     

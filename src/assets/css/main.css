@@ -58,8 +58,11 @@
   border-radius: 1rem;
   overflow: hidden;
 }
-#page-discover #swipe-box article.active {
-  z-index: 2;
+#page-discover #swipe-box article:nth-of-type(2) {
+  z-index: 5;
+}
+#page-discover #swipe-box article.active, #page-discover #swipe-box article:nth-of-type(1) {
+  z-index: 10;
 }
 #page-discover #swipe-box article figure {
   width: 100%;
@@ -159,10 +162,13 @@
   font-family: "Acme", sans-serif;
   text-transform: uppercase;
 }
-#page-matches .match-box {
+#page-matches #match-box {
   padding: 1rem;
 }
-#page-matches .match-box article {
+#page-matches #match-box a {
+  color: white;
+}
+#page-matches #match-box article {
   height: 5rem;
   overflow: hidden;
   padding: 0.5rem 1.5rem 0.5rem 0.5rem;
@@ -173,22 +179,25 @@
   justify-content: space-between;
   align-items: center;
 }
-#page-matches .match-box article header {
+#page-matches #match-box article:not(:first-child) {
+  margin-top: 0.5rem;
+}
+#page-matches #match-box article header {
   display: flex;
 }
-#page-matches .match-box article header div {
+#page-matches #match-box article header div {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   margin-left: 0.2rem;
 }
-#page-matches .match-box article header div ul {
+#page-matches #match-box article header div ul {
   display: flex;
 }
-#page-matches .match-box article header div ul li:not(:first-child) {
+#page-matches #match-box article header div ul li:not(:first-child) {
   margin-left: -2rem;
 }
-#page-matches .match-box article header div ul li img {
+#page-matches #match-box article header div ul li img {
   width: 4rem;
   height: 2rem;
   object-fit: cover;
@@ -198,7 +207,7 @@
   border: 3px solid #0b1928;
   border-radius: 0.5rem;
 }
-#page-matches .match-box article header img {
+#page-matches #match-box article header img {
   height: 4rem;
   width: 4rem;
   object-fit: cover;
