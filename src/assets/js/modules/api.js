@@ -9,7 +9,7 @@ export default class apiHandler {
     }
 
     isAuthenticated = async () => {
-        return await this.apiCall('/users/authenticated', 'GET', true);
+        return this.apiCall('/users/authenticated', 'GET', true);
     }
 
     logout = () => {
@@ -70,6 +70,7 @@ export default class apiHandler {
     validate = (response) => {
         if (response.status === 403 || response.status === 401) { // failed to auth
             this.main.navigationMgr.loadPage('page-login');
+            return {text: () => false};
         }
         return response;
     }
@@ -98,10 +99,11 @@ export default class apiHandler {
 }
 
 const parseJson = async response => { // prevent error in log, this way it doesnt clutter the output
+    const body = await response.text();
     try {
-        return await response.json()
+        return JSON.parse(body);
     } catch (err) {
-        return response
+        return body;
     }
 }
 
