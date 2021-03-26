@@ -1,9 +1,9 @@
 const userCard = (user) => `
-    <article class="user" id="user-${user.id}">
+    <article class="user" id="user-${user.id}" data-info="${CryptoJS.AES.encrypt(JSON.stringify(user), "ip_project")}">
         <figure>
             <img src="${user.avatar_path}"
                 alt="Picture">
-            <figcaption>
+            <figcaption class="show-more">
                 <h2>${user.username}</h2>
                 <button>View more...</button>
             </figcaption>
@@ -11,19 +11,25 @@ const userCard = (user) => `
     </article>
 `;
 
-const matchCard = (user) => `
-    <article id="match-${user.id}">
-        <header>
+const matchCard = (user) => {
+    let gamesStr = '';
+
+    let i = 0
+    user.games.forEach(game => {
+        if (i > 3) return;
+        gamesStr += `<li><img src="${game.image}" alt="${game.name}"></li>`;
+        i++;
+    });
+
+    return `
+    <article id="match-${user.id}" data-info="${CryptoJS.AES.encrypt(JSON.stringify(user), "ip_project")}">
+        <header class="show-more">
             <img src="${user.avatar_path}"
                 alt="Picture">
             <div>
                 <h2>${user.username}</h2>
                 <ul>
-                    <li><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/359550/header.jpg"
-                        alt="rainbow"></li>
-                    <li><img src="https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg"
-                        alt="csgo">
-                    </li>
+                    ${gamesStr}
                 </ul>
             </div>
         </header>
@@ -32,5 +38,31 @@ const matchCard = (user) => `
         </a>
     </article>
 `
+}
 
-export { userCard, matchCard }
+const profilePage = (user) => {
+    let gamesStr = '';
+
+    let i = 0
+    user.games.forEach(game => {
+        gamesStr += `<li><img src="${game.image}" alt="${game.name}"></li>`;
+    });
+
+    return `
+    <header>
+        <figure>
+            <img src="${user.avatar_path}" alt="Profile picture">
+            <figcaption>${user.username}</figcaption>
+        </figure>
+    </header>
+    <p>
+        ${user.description}
+    </p>
+    <ul class="game-box">
+        ${gamesStr}
+    </ul>
+`;
+    
+}
+
+export { userCard, matchCard, profilePage }
