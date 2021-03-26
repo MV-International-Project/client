@@ -2,7 +2,7 @@ import config from "./config.js";
 import { userCard, matchCard } from "./template.js";
 
 export default class apiHandler {
-    apiUrl = `http://${config.host}:${config.port}/api`;
+    apiUrl = `${config.origin}/api`;
 
     constructor(main) {
         this.main = main;

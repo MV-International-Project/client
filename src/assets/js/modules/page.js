@@ -16,7 +16,7 @@ export default class Page {
     get id() { return this._id }
 
     async open() {
-        if (this._settings.authenticated && await !this.main.apiHandler.isAuthenticated()) return this.main.navigationMgr.preload('page-login');
+        if (this._settings.authenticated && !await this.main.apiHandler.isAuthenticated()) return this.main.navigationMgr.preload('page-login');
         if (this.onOpen !== null) if (!this.onOpen()) return;
 
         if (this._settings.inNavBar) {
